@@ -1,9 +1,31 @@
 @use "../../styles" as *;
 
 .Pokemon {
+  &_refresh {
+    background-color: $green-100;
+    position: absolute;
+    right: 120px;
+
+    @include breakpoint(sm) {
+      padding: 15px;
+      right: 40px;
+    }
+
+    @include breakpoint(xs) {
+      padding: 10px;
+      right: 10px;
+    }
+  }
+
   &_container {
     @include flex-center;
     flex-direction: column;
+  }
+
+  &_image {
+    @include breakpoint(xs) {
+      width: 300px;
+    }
   }
 
   &_pokeball {

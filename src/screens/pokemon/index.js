@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import { Button, Container, PokeBall, Section, Text } from "components";
+import {
+  Button,
+  Container,
+  IconButton,
+  PokeBall,
+  Section,
+  Text,
+} from "components";
 
 import logo from "../../static/images/logo.png";
 
@@ -17,7 +24,7 @@ import useCollections from "hooks/useCollections";
 const Pokemon = () => {
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(Math.floor(Math.random() * 1001));
   const [retrievedPokemon, setRetrievedPokemon] = useState();
   const [addedPokemonNames, setAddedPokemonNames] = useState([]);
 
@@ -50,19 +57,25 @@ const Pokemon = () => {
     ]);
   };
 
-  // Randomize offset for pokemon lists
-  useEffect(() => {
-    setOffset(Math.floor(Math.random() * 1001));
-  }, []);
-
   // Prevent rendering when pokemon lists is still loading
   if (isPokemonListsLoading) return;
 
   return (
     <>
       <Section className={styles.Pokemon}>
+        <IconButton
+          className={styles.Pokemon_refresh}
+          icon="refresh"
+          onClick={() => setOffset(Math.floor(Math.random() * 1001))}
+        />
         <Container className={styles.Pokemon_container}>
-          <img src={logo} alt="Pokemon" width={400} />
+          <img
+            className={styles.Pokemon_image}
+            src={logo}
+            alt="Pokemon"
+            width={400}
+          />
+
           <div className={styles.Pokemon_pokeball}>
             {pokemons.results.map((pokemon) => (
               <PokeBall
