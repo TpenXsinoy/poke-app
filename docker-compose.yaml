@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  poke-app:
+    build: ./poke-app
+    image: pokemon
+    container_name: poke-app
+    restart: always
+    volumes:
+      - ./poke-app/src:/app/src
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    environment:
+      - WATCHPACK_POLLING=true

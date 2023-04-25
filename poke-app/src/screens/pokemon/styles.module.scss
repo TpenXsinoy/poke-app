@@ -1,0 +1,45 @@
+@use "../../styles" as *;
+
+.Pokemon {
+  &_container {
+    @include flex-center;
+    flex-direction: column;
+  }
+
+  &_pokeball {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 60px 72px;
+    padding: 80px;
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(xs) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &_button {
+    width: 30%;
+
+    @include breakpoint(md) {
+      width: 40%;
+    }
+
+    @include breakpoint(sm) {
+      width: 50%;
+    }
+
+    &_text {
+      @include breakpoint(sm) {
+        font-size: 16px;
+      }
+    }
+  }
+}

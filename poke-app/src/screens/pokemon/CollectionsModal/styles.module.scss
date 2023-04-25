@@ -1,0 +1,44 @@
+@use "../../../styles" as *;
+
+.CollectionsModal {
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+
+  &_collections {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: center;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(4, auto);
+    }
+
+    @include breakpoint(sm) {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @include breakpoint(xs) {
+      grid-template-columns: repeat(1, auto);
+    }
+  }
+
+  &_content {
+    @include flex-center;
+    flex-direction: column;
+    position: relative;
+
+    &_icon {
+      padding: 0;
+      position: absolute;
+      top: 0;
+      right: 10px;
+
+      > i {
+        font-size: 1.5rem !important;
+      }
+    }
+  }
+}

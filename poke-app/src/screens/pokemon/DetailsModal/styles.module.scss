@@ -1,0 +1,44 @@
+@use "../../../styles" as *;
+
+.DetailsModal {
+  @include flex-center;
+  flex-direction: column;
+  background-color: $neutral-0;
+  border: none;
+  max-width: 768px;
+  padding: 4em 6em;
+  width: 100%;
+
+  @include breakpoint(sm) {
+    padding: 2em 3em;
+    text-align: center;
+  }
+
+  &_content {
+    @include flex-center;
+    flex-direction: column;
+    margin-top: 48px;
+
+    &_details {
+      margin-top: 40px;
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      @include breakpoint(sm) {
+        grid-template-columns: 1fr;
+      }
+
+      &_text {
+        @include flex-center;
+        flex-direction: column;
+
+        @include breakpoint(sm) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}

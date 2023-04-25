@@ -1,0 +1,57 @@
+@import "./font";
+@import "./variables.scss";
+
+:root {
+  font-size: 16px;
+}
+
+html {
+  background-color: $neutral-600;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+main {
+  margin: 0;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $neutral-700;
+  font-family: Inter, san-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+p,
+li {
+  font-family: Inter;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// React Modal
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
