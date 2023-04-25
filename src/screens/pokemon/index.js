@@ -46,7 +46,12 @@ const Pokemon = () => {
       if (prevCollections.includes(name)) return prevCollections;
       return [
         ...prevCollections,
-        { name: data.name, image: data.sprites.front_default },
+        {
+          name: data.name,
+          image: data.sprites.other.dream_world.front_default
+            ? data.sprites.other.dream_world.front_default
+            : data.sprites.front_default,
+        },
       ];
     });
 
@@ -106,7 +111,11 @@ const Pokemon = () => {
         <DetailsModal
           isOpen={isDetailsModalOpen}
           onClose={() => setIsDetailsModalOpen(false)}
-          image={retrievedPokemon?.sprites?.front_default}
+          image={
+            retrievedPokemon?.sprites?.other?.dream_world?.front_default
+              ? retrievedPokemon?.sprites?.other?.dream_world?.front_default
+              : retrievedPokemon?.sprites?.front_default
+          }
           name={retrievedPokemon?.name}
           types={retrievedPokemon?.types?.map((type) => type.type.name)}
           abilities={retrievedPokemon?.abilities?.map(
@@ -122,6 +131,7 @@ const Pokemon = () => {
           onClose={() => setIsCollectionsOpen(false)}
           collections={collections}
           setCollections={setCollections}
+          setAddedPokemonNames={setAddedPokemonNames}
         />
       )}
     </>

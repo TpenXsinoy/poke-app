@@ -5,6 +5,7 @@
     background-color: $green-100;
     position: absolute;
     right: 120px;
+    padding: 20px;
 
     @include breakpoint(sm) {
       padding: 15px;

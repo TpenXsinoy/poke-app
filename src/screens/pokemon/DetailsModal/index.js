@@ -25,14 +25,15 @@ const DetailsModal = ({
       handleClose={onClose}
     >
       <Text
+        className={styles.DetailsModal_header}
         colorClass={GLOBALS.COLOR_CLASSES.BLUE["400"]}
         type={textTypes.HEADING.XL}
       >
-        You caught {name}
+        You Caught {name}
       </Text>
 
       <div className={styles.DetailsModal_content}>
-        <img src={image} alt={name} width={250} />
+        <img src={image} alt={name} width={150} />
         <div className={styles.DetailsModal_content_details}>
           <div className={styles.DetailsModal_content_details_text}>
             <Text

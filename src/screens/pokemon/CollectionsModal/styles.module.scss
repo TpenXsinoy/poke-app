@@ -8,7 +8,8 @@
   &_collections {
     display: grid;
     grid-template-columns: repeat(5, auto);
-    gap: 40px;
+    column-gap: 60px;
+    row-gap: 40px;
     margin-top: 40px;
     justify-content: center;
 
@@ -26,7 +27,7 @@
   }
 
   &_content {
-    @include flex-center;
+    @include flex-between;
     flex-direction: column;
     position: relative;
 
@@ -34,11 +35,19 @@
       padding: 0;
       position: absolute;
       top: 0;
-      right: 10px;
+      right: 0;
 
       > i {
         font-size: 1.5rem !important;
       }
     }
+
+    &_text {
+      text-transform: capitalize;
+    }
+  }
+
+  &_deleteAll {
+    margin-top: 40px;
   }
 }
