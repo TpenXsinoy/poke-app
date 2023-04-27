@@ -26,15 +26,21 @@ const Pokemon = () => {
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
   const [offset, setOffset] = useState(Math.floor(Math.random() * 1001));
   const [retrievedPokemon, setRetrievedPokemon] = useState();
+  const [isRetrievedPokemonLoading, setIsRetrievedPokemonLoading] =
+    useState(true);
   const [addedPokemonNames, setAddedPokemonNames] = useState([]);
 
   const { pokemons, isLoading: isPokemonListsLoading } = usePokemons(offset);
   const [collections, setCollections] = useCollections("collections", []);
 
   const handleRetrievedPokemon = async (name) => {
+    setIsRetrievedPokemonLoading(true);
+
     // Retrieve specific pokemon from clicked pokeball
     const { data } = await PokemonsService.retrieveByName(name);
     setRetrievedPokemon(data);
+
+    setIsRetrievedPokemonLoading(false);
 
     // Prevent duplicate pokemon in collections
     if (addedPokemonNames.includes(name)) {
@@ -107,7 +113,7 @@ const Pokemon = () => {
         </Container>
       </Section>
 
-      {isDetailsModalOpen && retrievedPokemon && (
+      {!isRetrievedPokemonLoading && isDetailsModalOpen && retrievedPokemon && (
         <DetailsModal
           isOpen={isDetailsModalOpen}
           onClose={() => setIsDetailsModalOpen(false)}
